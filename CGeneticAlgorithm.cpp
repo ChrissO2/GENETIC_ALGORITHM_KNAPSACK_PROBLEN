@@ -37,27 +37,6 @@ CGeneticAlgorithm::CGeneticAlgorithm(double mutProb, double crossProb, int popSi
     this->bestIndividual = NULL;
 }
 
-CGeneticAlgorithm::CGeneticAlgorithm(double mutProb, double crossProb, int popSize, int iterations,
-                                     CKnapsackProblem *problem, vector<CIndividual> individuals) {
-    if (isDataValid(mutProb, crossProb, popSize, iterations)) {
-        this->mutProb = mutProb;
-        this->crossProb = crossProb;
-        this->popSize = popSize;
-        this->iterations = iterations;
-    }
-    else {
-        this->mutProb = 0;
-        this->crossProb = 0;
-        this->popSize = 0;
-        this->iterations = 0;
-        cerr << "CGeneticAlgorithm: Invalid data\n";
-    }
-    this->problem = problem;
-    this->bestIndividual = NULL;
-    for (int i = 0; i < individuals.size(); i++) {
-        generation.push_back(new CIndividual(individuals[i]));
-    }
-}
 
 string CGeneticAlgorithm::getResult() {
     string result = "";
@@ -165,20 +144,3 @@ void CGeneticAlgorithm::run() {
     }
 }
 
-
-void CGeneticAlgorithm::run2() {
-    int iteration = 1;
-    bestIndividual = new CIndividual(*findBestIndividual());
-    while (iteration < iterations) {
-        createNextGeneration();
-        mutateGeneration();
-        CIndividual* bestInGeneration = findBestIndividual();
-        if (bestInGeneration->getFitness() > bestIndividual->getFitness()) {
-            if (bestIndividual != NULL)
-                delete bestIndividual;
-            bestIndividual = new CIndividual(*bestInGeneration);
-            bestInGeneration = NULL;
-        }
-        iteration++;
-    }
-}

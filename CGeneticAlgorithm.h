@@ -28,10 +28,7 @@ public:
     CGeneticAlgorithm(double mutProb, double crossProb, int popSize,
                       int iterations, CKnapsackProblem *problem);
     ~CGeneticAlgorithm();
-    CGeneticAlgorithm(double mutProb, double crossProb, int popSize,
-                      int iterations, CKnapsackProblem *problem, vector<CIndividual> individuals);
 
     string getResult();
     void run();
-    void run2();
 };
