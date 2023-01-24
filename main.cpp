@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 void test() {
     srand(time(NULL));
     CKnapsackProblem problem;
@@ -14,6 +15,7 @@ void test() {
     }
 }
 
+
 void test_invalid_data() {
     srand(time(NULL));
     CKnapsackProblem problem;
@@ -23,6 +25,7 @@ void test_invalid_data() {
         cout << ag.getResult() << endl;
     }
 }
+
 
 int main() {
     test();

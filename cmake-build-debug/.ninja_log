@@ -72,3 +72,7 @@
 1	809	1674598370675783126	CMakeFiles/projekt_v2.dir/CIndividual.cpp.o	fc233bdfe0e4d3
 2	809	1674598370676362419	CMakeFiles/projekt_v2.dir/CKnapsackProblem.cpp.o	55f739196c316612
 809	859	1674598370729626217	projekt_v2	d40905eb8fd48f36
+2	638	1674598593526962770	CMakeFiles/projekt_v2.dir/main.cpp.o	4c9b4b1a743038ce
+4	650	1674598593540515136	CMakeFiles/projekt_v2.dir/CGeneticAlgorithm.cpp.o	9d3751931042998
+4	674	1674598593563713277	CMakeFiles/projekt_v2.dir/CKnapsackProblem.cpp.o	55f739196c316612
+674	726	1674598593618837079	projekt_v2	d40905eb8fd48f36

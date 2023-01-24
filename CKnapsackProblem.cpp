@@ -6,6 +6,7 @@ CKnapsackProblem::CKnapsackProblem() {
     knapsackSize = 0;
 }
 
+
 CKnapsackProblem::CKnapsackProblem(vector<double> sizes, vector<double> values) {
     int newItemsAmount = sizes.size();
     double newKnapsackSize = 0;
@@ -22,6 +23,7 @@ CKnapsackProblem::CKnapsackProblem(vector<double> sizes, vector<double> values) 
         cerr << "CKnapsackProblem: Invalid input data\n";
 }
 
+
 CKnapsackProblem::CKnapsackProblem(int itemsAmount, const vector<double> &sizes,
                                    const vector<double> &values, double knapsackSize){
     if (isDataValid(itemsAmount, knapsackSize, sizes, values)) {
@@ -34,9 +36,11 @@ CKnapsackProblem::CKnapsackProblem(int itemsAmount, const vector<double> &sizes,
         cerr << "CKnapsackProblem: Invalid input data\n";
 }
 
+
 int CKnapsackProblem::getNumberOfItems() const {
     return itemsAmount;
 }
+
 
 double CKnapsackProblem::calculateFitness(const vector<int> &genotype) {
     double genotype_size = 0;
@@ -53,6 +57,7 @@ double CKnapsackProblem::calculateFitness(const vector<int> &genotype) {
     return 0;
 }
 
+
 bool CKnapsackProblem::isDataValid(int itemsAmount, int knapsackSize, vector<double> sizes, vector<double> values) {
     bool result = true;
     if (itemsAmount < 0 || itemsAmount != sizes.size() || itemsAmount < values.size())
@@ -65,7 +70,6 @@ bool CKnapsackProblem::isDataValid(int itemsAmount, int knapsackSize, vector<dou
     }
     return result;
 }
-
 
 
 bool CKnapsackProblem::loadDataFile(string filePath) {

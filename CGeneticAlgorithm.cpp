@@ -1,5 +1,6 @@
 #include "CGeneticAlgorithm.h"
 
+
 CGeneticAlgorithm::CGeneticAlgorithm() {
     popSize = 0;
     mutProb = 0;
@@ -9,14 +10,6 @@ CGeneticAlgorithm::CGeneticAlgorithm() {
     bestIndividual = NULL;
 }
 
-CGeneticAlgorithm::~CGeneticAlgorithm() {
-    if (bestIndividual != NULL)
-        delete bestIndividual;
-    for (int i = generation.size() - 1; i >= 0; i--) {
-        if (generation[i] != NULL)
-            delete generation[i];
-    }
-}
 
 CGeneticAlgorithm::CGeneticAlgorithm(double mutProb, double crossProb, int popSize,
                                      int iterations, CKnapsackProblem *problem){
@@ -38,12 +31,42 @@ CGeneticAlgorithm::CGeneticAlgorithm(double mutProb, double crossProb, int popSi
 }
 
 
+CGeneticAlgorithm::~CGeneticAlgorithm() {
+    if (bestIndividual != NULL)
+        delete bestIndividual;
+    for (int i = generation.size() - 1; i >= 0; i--) {
+        if (generation[i] != NULL)
+            delete generation[i];
+    }
+}
+
+
+void CGeneticAlgorithm::run() {
+    int iteration = 1;
+    if (createFirstGeneration()) {
+        while (iteration < iterations) {
+            createNextGeneration();
+            mutateGeneration();
+            CIndividual* bestInGeneration = findBestIndividual();
+            if (bestInGeneration->getFitness() > bestIndividual->getFitness()) {
+                if (bestIndividual != NULL)
+                    delete bestIndividual;
+                bestIndividual = new CIndividual(*bestInGeneration);
+                bestInGeneration = NULL;
+            }
+            iteration++;
+        }
+    }
+}
+
+
 string CGeneticAlgorithm::getResult() {
     string result = "";
     if (bestIndividual != NULL)
         result = bestIndividual->genotypeToString();
     return result;
 }
+
 
 bool CGeneticAlgorithm::isDataValid(double mutProb, double crossProb, int popSize, int iterations) {
     bool result = true;
@@ -58,6 +81,7 @@ bool CGeneticAlgorithm::isDataValid(double mutProb, double crossProb, int popSiz
     return result;
 }
 
+
 bool CGeneticAlgorithm::createFirstGeneration() {
     bool result = false;
     if (problem != NULL && generation.empty()) {
@@ -69,6 +93,7 @@ bool CGeneticAlgorithm::createFirstGeneration() {
     }
     return result;
 }
+
 
 void CGeneticAlgorithm::createNextGeneration() {
     vector<CIndividual*> nextGen;
@@ -120,27 +145,9 @@ CIndividual* CGeneticAlgorithm::findBestIndividual() {
     return best;
 }
 
+
 void CGeneticAlgorithm::mutateGeneration() {
     for (int i = 0; i < generation.size(); i++) {
         generation[i]->mutate(mutProb);
     }
 }
-
-void CGeneticAlgorithm::run() {
-    int iteration = 1;
-    if (createFirstGeneration()) {
-        while (iteration < iterations) {
-            createNextGeneration();
-            mutateGeneration();
-            CIndividual* bestInGeneration = findBestIndividual();
-            if (bestInGeneration->getFitness() > bestIndividual->getFitness()) {
-                if (bestIndividual != NULL)
-                    delete bestIndividual;
-                bestIndividual = new CIndividual(*bestInGeneration);
-                bestInGeneration = NULL;
-            }
-            iteration++;
-        }
-    }
-}
-
