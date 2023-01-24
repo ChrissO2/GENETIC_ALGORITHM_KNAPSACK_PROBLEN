@@ -88,12 +88,6 @@ bool CGeneticAlgorithm::createFirstGeneration() {
         result =  true;
         bestIndividual = new CIndividual(*findBestIndividual());
     }
-
-//    for debbuging
-//    for (int i = 0; i < generation.size(); i++) {
-//        cout << generation[i]->genotype_to_string() << endl;
-//    }
-
     return result;
 }
 
@@ -163,7 +157,7 @@ void CGeneticAlgorithm::run() {
             if (bestInGeneration->getFitness() > bestIndividual->getFitness()) {
                 if (bestIndividual != NULL)
                     delete bestIndividual;
-                bestIndividual = bestInGeneration;
+                bestIndividual = new CIndividual(*bestInGeneration);
                 bestInGeneration = NULL;
             }
             iteration++;
@@ -174,7 +168,7 @@ void CGeneticAlgorithm::run() {
 
 void CGeneticAlgorithm::run2() {
     int iteration = 1;
-    bestIndividual = findBestIndividual();
+    bestIndividual = new CIndividual(*findBestIndividual());
     while (iteration < iterations) {
         createNextGeneration();
         mutateGeneration();
@@ -182,11 +176,9 @@ void CGeneticAlgorithm::run2() {
         if (bestInGeneration->getFitness() > bestIndividual->getFitness()) {
             if (bestIndividual != NULL)
                 delete bestIndividual;
-            bestIndividual = bestInGeneration;
+            bestIndividual = new CIndividual(*bestInGeneration);
             bestInGeneration = NULL;
         }
         iteration++;
     }
 }
-
-

@@ -10,7 +10,7 @@ void test() {
     srand(time(NULL));
     CKnapsackProblem problem;
     if (problem.import_file("/Users/krzysztofotreba/CLionProjects/projekt_v2/data.txt")) {
-        CGeneticAlgorithm ag = CGeneticAlgorithm(0.1, 0.5, 4, 10, &problem);
+        CGeneticAlgorithm ag = CGeneticAlgorithm(0.1, 0.5, 10, 50, &problem);
         ag.run();
         cout << ag.getResult() << endl;
     }
@@ -46,33 +46,7 @@ void test_errors(){
 }
 
 int main() {
-//    test();
-//    test_invalid_data();
-    test_errors();
+    test();
+    test_invalid_data();
     return 0;
 }
-
-
-// infinite loop
-//0001
-//1001
-//1000
-//1101
-
-// red error after
-//1011
-//0110
-//1011
-//1011
-
-// red error before
-//0110
-//0101
-//1110
-//1110
-
-// code 139
-//0000
-//0111
-//1111
-//1101

@@ -1,7 +1,3 @@
-//
-// Created by Krzysztof Otręba on 24/01/2023.
-//
-
 #include "CIndividual.h"
 
 CIndividual::CIndividual() {
@@ -24,6 +20,12 @@ CIndividual::CIndividual(const vector<int>& genotype, CKnapsackProblem *problem)
     this->genotype = genotype;
     this->problem = problem;
     setFitness();
+}
+
+CIndividual::CIndividual(const CIndividual &other) {
+    problem = other.problem;
+    fitness = other.fitness;
+    genotype = vector<int>(other.genotype);
 }
 
 
@@ -73,8 +75,3 @@ string CIndividual::genotype_to_string() {
     }
     return result;
 }
-
-
-
-
-

@@ -1,7 +1,3 @@
-//
-// Created by Krzysztof Otręba on 24/01/2023.
-//
-
 #include "CKnapsackProblem.h"
 
 
@@ -107,7 +103,3 @@ bool CKnapsackProblem::import_file(string file_name) {
     }
     return false;
 }
-
-
-
-

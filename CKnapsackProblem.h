@@ -24,4 +24,3 @@ public:
     double calculateFitness(const vector<int> &genotype);
     bool import_file(string file_name);
 };
-

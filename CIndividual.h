@@ -1,9 +1,4 @@
-//
-// Created by Krzysztof Otręba on 24/01/2023.
-//
-
-#ifndef PROJEKT_V2_CINDIVIDUAL_H
-#define PROJEKT_V2_CINDIVIDUAL_H
+#pragma once
 
 #include <vector>
 #include <cstdlib>
@@ -24,6 +19,7 @@ public:
     CIndividual();
     CIndividual(CKnapsackProblem *newProblem);
     CIndividual(const vector<int>& genotype, CKnapsackProblem *problem);
+    CIndividual(const CIndividual& other);
 
     double getFitness() const;
 
@@ -34,6 +30,3 @@ public:
 
 
 };
-
-
-#endif //PROJEKT_V2_CINDIVIDUAL_H
