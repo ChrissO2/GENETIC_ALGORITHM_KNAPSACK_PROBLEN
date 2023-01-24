@@ -103,7 +103,7 @@ bool CKnapsackProblem::loadDataFile(string filePath) {
             cerr << "CKnapsackProblem::loadDataFile: Invalid input data\n";
 
     } catch (exception &err) {
-        cerr << "CKnapsackProblem::loadDataFile: cannot read from file\n";
+        cerr << "CKnapsackProblem::loadDataFile: No file found\n";
     }
     return false;
 }

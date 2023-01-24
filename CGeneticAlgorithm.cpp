@@ -57,6 +57,9 @@ void CGeneticAlgorithm::run() {
             iteration++;
         }
     }
+    else {
+        cerr << "CGeneticAlgorithm::run: Not given CKnapsackProblem instance\n";
+    }
 }
 
 
