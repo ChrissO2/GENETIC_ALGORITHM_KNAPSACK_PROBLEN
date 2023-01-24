@@ -1,0 +1,3 @@
+/Users/krzysztofotreba/CLionProjects/projekt_v2/cmake-build-debug/CMakeFiles/projekt_v2.dir
+/Users/krzysztofotreba/CLionProjects/projekt_v2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/krzysztofotreba/CLionProjects/projekt_v2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
