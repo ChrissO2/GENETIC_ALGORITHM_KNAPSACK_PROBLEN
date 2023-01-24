@@ -41,7 +41,7 @@ CGeneticAlgorithm::CGeneticAlgorithm(double mutProb, double crossProb, int popSi
 string CGeneticAlgorithm::getResult() {
     string result = "";
     if (bestIndividual != NULL)
-        result = bestIndividual->genotype_to_string();
+        result = bestIndividual->genotypeToString();
     return result;
 }
 

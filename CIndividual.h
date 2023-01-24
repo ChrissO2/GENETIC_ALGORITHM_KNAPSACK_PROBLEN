@@ -17,7 +17,7 @@ private:
     void setFitness();
 public:
     CIndividual();
-    CIndividual(CKnapsackProblem *newProblem);
+    CIndividual(CKnapsackProblem *problem);
     CIndividual(const vector<int>& genotype, CKnapsackProblem *problem);
     CIndividual(const CIndividual& other);
 
@@ -25,7 +25,7 @@ public:
 
     void mutate(double mut_prob);
     vector<CIndividual*> cross(CIndividual& other);
-    string genotype_to_string();
+    string genotypeToString();
 
 
 

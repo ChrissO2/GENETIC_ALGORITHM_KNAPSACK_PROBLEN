@@ -5,8 +5,8 @@ CIndividual::CIndividual() {
     fitness = 0;
 }
 
-CIndividual::CIndividual(CKnapsackProblem *newProblem) {
-    this->problem = newProblem;
+CIndividual::CIndividual(CKnapsackProblem *problem) {
+    this->problem = problem;
     for (int i = 0; i < problem->getNumberOfItems(); i++) {
         if (rand() % 2 == 0)
             genotype.push_back(1);
@@ -68,7 +68,7 @@ vector<CIndividual *> CIndividual::cross(CIndividual &other) {
     return children;
 }
 
-string CIndividual::genotype_to_string() {
+string CIndividual::genotypeToString() {
     string result = "";
     for (int i = 0; i < genotype.size(); i++) {
         result += to_string(genotype[i]);
