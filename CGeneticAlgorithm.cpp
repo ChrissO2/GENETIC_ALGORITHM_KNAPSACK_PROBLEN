@@ -134,16 +134,3 @@ void CGeneticAlgorithm::moveGeneration() {
     }
     newGeneration.clear();
 }
-
-
-//1. swtorz pierwsze pokolenie
-//2. znajdz najlepszego osobnika
-//2.5 petla
-//3. dodaj do nowej generacji krzyzowki lub rodzicow
-//4. przeprowadz mutacje na nowej generacji
-//5. usun stara generacje, przenies nowa na stara, wyczysc nowa
-//6. znajdz najlepszego osobnika
-//7. wroc do pkt 3
-
-
-
