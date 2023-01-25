@@ -49,8 +49,8 @@ void CIndividual::mutate(double mut_prob) {
     setFitness();
 }
 
-vector<CIndividual *> CIndividual::cross(CIndividual &other) {
-    vector<CIndividual*> children;
+pair<CIndividual*, CIndividual*> CIndividual::cross(CIndividual &other) {
+    pair<CIndividual*, CIndividual*> children;
     int slice_index = 1 + (rand() % (genotype.size() - 1));
     vector<int> child1_genotype;
     vector<int> child2_genotype;
@@ -62,8 +62,8 @@ vector<CIndividual *> CIndividual::cross(CIndividual &other) {
         child1_genotype.push_back(other.genotype[i]);
         child2_genotype.push_back(genotype[i]);
     }
-    children.push_back(new CIndividual(child1_genotype, problem));
-    children.push_back(new CIndividual(child2_genotype, problem));
+    children.first = new CIndividual(child1_genotype, problem);
+    children.second = new CIndividual(child2_genotype, problem);
 
     return children;
 }

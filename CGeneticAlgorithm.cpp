@@ -85,10 +85,10 @@ void CGeneticAlgorithm::crossGeneration() {
     while (newGeneration.size() < popSize) {
         CIndividual* parent1 = chooseParent();
         CIndividual* parent2 = chooseParent();
-        vector<CIndividual*> children = parent1->cross(*parent2);
-        newGeneration.push_back(children[0]);
+        pair<CIndividual*, CIndividual*> children = parent1->cross(*parent2);
+        newGeneration.push_back(children.first);
         if (newGeneration.size() < popSize)
-            newGeneration.push_back(children[1]);
+            newGeneration.push_back(children.second);
     }
 }
 
