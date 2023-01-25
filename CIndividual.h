@@ -5,7 +5,6 @@
 #include <string>
 
 #include "CapacityProblem.h"
-#include "CKnapsackProblem.h"
 
 
 using namespace std;

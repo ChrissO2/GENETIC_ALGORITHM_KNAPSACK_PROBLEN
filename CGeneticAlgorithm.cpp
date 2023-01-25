@@ -34,40 +34,12 @@ CGeneticAlgorithm::CGeneticAlgorithm(double mutProb, double crossProb, int popSi
 CGeneticAlgorithm::~CGeneticAlgorithm() {
     if (bestIndividual != NULL)
         delete bestIndividual;
-    for (int i = generation.size() - 1; i >= 0; i--) {
-        if (generation[i] != NULL)
-            delete generation[i];
+    for (int i = oldGeneration.size() - 1; i >= 0; i--) {
+        if (oldGeneration[i] != NULL)
+            delete oldGeneration[i];
+        if (newGeneration[i] != NULL)
+            delete newGeneration[i];
     }
-}
-
-
-void CGeneticAlgorithm::run() {
-    int iteration = 1;
-    if (createFirstGeneration()) {
-        while (iteration < iterations) {
-            createNextGeneration();
-            mutateGeneration();
-            CIndividual* bestInGeneration = findBestIndividual();
-            if (bestInGeneration->getFitness() > bestIndividual->getFitness()) {
-                if (bestIndividual != NULL)
-                    delete bestIndividual;
-                bestIndividual = new CIndividual(*bestInGeneration);
-                bestInGeneration = NULL;
-            }
-            iteration++;
-        }
-    }
-    else {
-        cerr << "CGeneticAlgorithm::run: Not given CKnapsackProblem instance\n";
-    }
-}
-
-
-string CGeneticAlgorithm::getResult() {
-    string result = "";
-    if (bestIndividual != NULL)
-        result = bestIndividual->genotypeToString();
-    return result;
 }
 
 
@@ -85,72 +57,93 @@ bool CGeneticAlgorithm::isDataValid(double mutProb, double crossProb, int popSiz
 }
 
 
-bool CGeneticAlgorithm::createFirstGeneration() {
-    bool result = false;
-    if (problem != NULL && generation.empty()) {
-        for (int i = 0; i < popSize; i++) {
-            generation.push_back(new CIndividual(problem));
-        }
-        result =  true;
-        bestIndividual = new CIndividual(*findBestIndividual());
-    }
+string CGeneticAlgorithm::getResult() {
+    string result = "";
+    if (bestIndividual != NULL)
+        result = bestIndividual->genotypeToString();
     return result;
 }
 
-
-void CGeneticAlgorithm::createNextGeneration() {
-    vector<CIndividual*> nextGen;
-    while(nextGen.size() < popSize) {
-        int parent1Index = rand() % (generation.size());
-        int parent2Index = rand() % (generation.size());
-        while(parent2Index == parent1Index) {
-            parent2Index = rand() % (generation.size());
-        }
-        CIndividual* parent1 = generation[parent1Index];
-        CIndividual* parent2 = generation[parent2Index];
-        if ((double)rand() / (double)RAND_MAX <= crossProb) {
-            vector<CIndividual*> children = parent1->cross(*parent2);
-            nextGen.push_back(children[0]);
-            if (nextGen.size() < popSize) {
-                nextGen.push_back(children[1]);
-            }
-        }
-        else {
-            if (parent1->getFitness() > parent2->getFitness()) {
-                nextGen.push_back(new CIndividual(*parent1));
-                if (nextGen.size() < popSize)
-                    nextGen.push_back(new CIndividual(*parent2));
-            }
-            else {
-                nextGen.push_back(new CIndividual(*parent2));
-                if (nextGen.size() < popSize)
-                    nextGen.push_back(new CIndividual(*parent1));
-            }
-        }
+CIndividual *CGeneticAlgorithm::chooseParent() {
+    int parent1Index = rand() % popSize;
+    int parent2Index = rand() % popSize;
+    while (parent2Index == parent1Index) {
+        parent2Index = rand() % popSize;
     }
-    for (int i = generation.size() - 1; i >= 0; i--) {
-        if (generation[i] != NULL)
-            delete generation[i];
-    }
-    generation.clear();
-    for (int i = 0; i < nextGen.size(); i++) {
-        generation.push_back(nextGen[i]);
-    }
+    if (oldGeneration[parent1Index]->getFitness() > oldGeneration[parent2Index]->getFitness())
+        return oldGeneration[parent1Index];
+    return oldGeneration[parent2Index];
 }
-
-
-CIndividual* CGeneticAlgorithm::findBestIndividual() {
-    CIndividual* best = generation[0];
-    for (int i = 0; i < generation.size(); i++) {
-        if (generation[i]->getFitness() > best->getFitness())
-            best = generation[i];
-    }
-    return best;
-}
-
 
 void CGeneticAlgorithm::mutateGeneration() {
-    for (int i = 0; i < generation.size(); i++) {
-        generation[i]->mutate(mutProb);
+    for (int i = 0; i < newGeneration.size(); i++) {
+        newGeneration[i]->mutate(mutProb);
     }
 }
+
+void CGeneticAlgorithm::crossGeneration() {
+    while (newGeneration.size() < popSize) {
+        // sprawdz czy to nowe obiekty czy te same adresy co rodzice
+        CIndividual* parent1 = chooseParent();
+        CIndividual* parent2 = chooseParent();
+        vector<CIndividual*> children = parent1->cross(*parent2);
+        newGeneration.push_back(children[0]);
+        if (newGeneration.size() < popSize)
+            newGeneration.push_back(children[1]);
+        else
+            delete children[1];
+    }
+}
+
+void CGeneticAlgorithm::findBestIndividual() {
+    if (bestIndividual == NULL)
+        bestIndividual = new CIndividual(*oldGeneration[0]);
+    for (int i = 0; i < oldGeneration.size(); i++) {
+        if (oldGeneration[i]->getFitness() > bestIndividual->getFitness()) {
+            delete bestIndividual;
+            bestIndividual = new CIndividual(*oldGeneration[i]);
+        }
+    }
+}
+
+
+void CGeneticAlgorithm::run() {
+    createFirstGeneration();
+    findBestIndividual();
+    int iteration = 1;
+    while (iteration < iterations) {
+        crossGeneration();
+        mutateGeneration();
+        moveGeneration();
+        findBestIndividual();
+        iteration++;
+    }
+}
+
+void CGeneticAlgorithm::createFirstGeneration() {
+    for (int i = 0; i < popSize; i++) {
+        oldGeneration.push_back(new CIndividual(problem));
+    }
+}
+
+void CGeneticAlgorithm::moveGeneration() {
+    for (int i = 0; i < oldGeneration.size(); i++) {
+        delete oldGeneration[i];
+        oldGeneration[i] = newGeneration[i];
+        newGeneration[i] = NULL;
+    }
+    newGeneration.clear();
+}
+
+
+//1. swtorz pierwsze pokolenie
+//2. znajdz najlepszego osobnika
+//2.5 petla
+//3. dodaj do nowej generacji krzyzowki lub rodzicow
+//4. przeprowadz mutacje na nowej generacji
+//5. usun stara generacje, przenies nowa na stara, wyczysc nowa
+//6. znajdz najlepszego osobnika
+//7. wroc do pkt 3
+
+
+

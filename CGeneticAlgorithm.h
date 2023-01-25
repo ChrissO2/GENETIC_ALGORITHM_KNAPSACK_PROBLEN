@@ -5,7 +5,6 @@
 
 #include "CIndividual.h"
 #include "CapacityProblem.h"
-#include "CKnapsackProblem.h"
 
 
 class CGeneticAlgorithm {
@@ -16,13 +15,18 @@ private:
     CapacityProblem* problem;
     CIndividual* bestIndividual;
     int iterations;
-    vector<CIndividual*> generation;
+    vector<CIndividual*> oldGeneration;
+    vector<CIndividual*> newGeneration;
 
     bool isDataValid(double mutProb, double crossProb, int popSize, int iterations);
-    bool createFirstGeneration();
-    void createNextGeneration();
-    CIndividual* findBestIndividual();
+    void crossGeneration();
     void mutateGeneration();
+    void findBestIndividual();
+    void moveGeneration();
+    CIndividual* chooseParent();
+    void createFirstGeneration();
+
+
 
 public:
     CGeneticAlgorithm();

@@ -1,6 +1,8 @@
 #include <iostream>
 
 #include "CGeneticAlgorithm.h"
+#include "CapacityProblem.h"
+#include "CKnapsackProblem.h"
 
 using namespace std;
 
