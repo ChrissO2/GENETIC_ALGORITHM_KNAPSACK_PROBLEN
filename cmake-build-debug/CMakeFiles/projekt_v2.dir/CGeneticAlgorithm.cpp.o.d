@@ -234,4 +234,5 @@ CMakeFiles/projekt_v2.dir/CGeneticAlgorithm.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/vector \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__split_buffer \
   /Users/krzysztofotreba/CLionProjects/tep_interfaces/GENETIC_ALGORITHM_KNAPSACK_PROBLEN/CIndividual.h \
-  /Users/krzysztofotreba/CLionProjects/tep_interfaces/GENETIC_ALGORITHM_KNAPSACK_PROBLEN/CapacityProblem.h
+  /Users/krzysztofotreba/CLionProjects/tep_interfaces/GENETIC_ALGORITHM_KNAPSACK_PROBLEN/CapacityProblem.h \
+  /Users/krzysztofotreba/CLionProjects/tep_interfaces/GENETIC_ALGORITHM_KNAPSACK_PROBLEN/GeneticAlgorithmDefValues.h

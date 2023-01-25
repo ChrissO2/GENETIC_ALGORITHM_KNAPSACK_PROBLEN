@@ -7,8 +7,7 @@
 using namespace std;
 
 
-void testValidData() {
-    srand(time(NULL));
+void testValidFileData() {
     CKnapsackProblem problem;
     if (problem.loadDataFile("/Users/krzysztofotreba/CLionProjects/projekt_v2/data.txt")) {
         CGeneticAlgorithm geneticAlgorithm = CGeneticAlgorithm(0.1, 0.5, 10, 50, &problem);
@@ -18,8 +17,7 @@ void testValidData() {
 }
 
 
-void testInvalidData() {
-    srand(time(NULL));
+void testInvalidFileData() {
     CKnapsackProblem problem;
     if (problem.loadDataFile("/Users/krzysztofotreba/CLionProjects/projekt_v2/invaliddata1.txt")) {
         CGeneticAlgorithm geneticAlgorithm = CGeneticAlgorithm(0.1, 0.5, 10, 50, &problem);
@@ -29,8 +27,18 @@ void testInvalidData() {
 }
 
 
+void testDataFromCode() {
+    vector<double> sizes = {1, 2, 3, 4, 5};
+    vector<double> values = {5, 2, 11, 2, 4};
+    CKnapsackProblem problem(5, sizes, values, 4);
+    if (problem.isReady()) {
+        CGeneticAlgorithm geneticAlgorithm = CGeneticAlgorithm(0.1, 0.5, 10, 50, &problem);
+        geneticAlgorithm.run();
+        cout << geneticAlgorithm.getResult() << endl;
+    }
+}
+
 void testInvalidFilePath() {
-    srand(time(NULL));
     CKnapsackProblem problem;
     if (problem.loadDataFile("")) {
         CGeneticAlgorithm geneticAlgorithm = CGeneticAlgorithm(0.1, 0.5, 10, 50, &problem);
@@ -39,10 +47,25 @@ void testInvalidFilePath() {
     }
 }
 
+void testInvalidDataFromCode() {
+    vector<double> sizes = {1, 2, 3, 4};
+    vector<double> values = {5, 2, 11, 2, 4};
+    CKnapsackProblem problem(5, sizes, values, -4);
+    if (problem.isReady()) {
+        CGeneticAlgorithm geneticAlgorithm = CGeneticAlgorithm(0.1, 0.5, 10, 50, &problem);
+        geneticAlgorithm.run();
+        cout << geneticAlgorithm.getResult() << endl;
+    }
+}
+
+
 
 int main() {
-    testValidData();
-    testInvalidData();
+    srand(time(NULL));
+    testValidFileData();
+    testInvalidFileData();
+    testDataFromCode();
     testInvalidFilePath();
+    testInvalidDataFromCode();
     return 0;
 }

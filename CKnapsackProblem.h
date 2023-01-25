@@ -25,4 +25,5 @@ public:
     int getNumberOfItems() override;
     double calculateFitness(const vector<int> &genotype) override;
     bool loadDataFile(const string &filePath) override;
+    bool isReady() override;
 };
