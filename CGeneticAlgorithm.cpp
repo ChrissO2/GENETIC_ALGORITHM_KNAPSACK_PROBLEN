@@ -12,7 +12,7 @@ CGeneticAlgorithm::CGeneticAlgorithm() {
 
 
 CGeneticAlgorithm::CGeneticAlgorithm(double mutProb, double crossProb, int popSize,
-                                     int iterations, CKnapsackProblem *problem){
+                                     int iterations, CapacityProblem *problem){
     if (isDataValid(mutProb, crossProb, popSize, iterations)) {
         this->mutProb = mutProb;
         this->crossProb = crossProb;

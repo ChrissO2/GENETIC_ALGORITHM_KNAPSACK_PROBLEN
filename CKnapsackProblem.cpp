@@ -37,7 +37,7 @@ CKnapsackProblem::CKnapsackProblem(int itemsAmount, const vector<double> &sizes,
 }
 
 
-int CKnapsackProblem::getNumberOfItems() const {
+int CKnapsackProblem::getNumberOfItems() {
     return itemsAmount;
 }
 
@@ -72,7 +72,7 @@ bool CKnapsackProblem::isDataValid(int itemsAmount, int knapsackSize, vector<dou
 }
 
 
-bool CKnapsackProblem::loadDataFile(string filePath) {
+bool CKnapsackProblem::loadDataFile(const string &filePath) {
     fstream file;
     int newItemAmount;
     double newKnapsackSize;

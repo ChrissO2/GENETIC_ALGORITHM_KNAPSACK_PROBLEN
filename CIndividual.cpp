@@ -5,7 +5,7 @@ CIndividual::CIndividual() {
     fitness = 0;
 }
 
-CIndividual::CIndividual(CKnapsackProblem *problem) {
+CIndividual::CIndividual(CapacityProblem *problem) {
     this->problem = problem;
     for (int i = 0; i < problem->getNumberOfItems(); i++) {
         if (rand() % 2 == 0)
@@ -16,7 +16,7 @@ CIndividual::CIndividual(CKnapsackProblem *problem) {
     setFitness();
 }
 
-CIndividual::CIndividual(const vector<int>& genotype, CKnapsackProblem *problem) {
+CIndividual::CIndividual(const vector<int>& genotype, CapacityProblem *problem) {
     this->genotype = genotype;
     this->problem = problem;
     setFitness();

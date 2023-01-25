@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "CIndividual.h"
+#include "CapacityProblem.h"
 #include "CKnapsackProblem.h"
 
 
@@ -12,7 +13,7 @@ private:
     double mutProb;
     double crossProb;
     int popSize;
-    CKnapsackProblem* problem;
+    CapacityProblem* problem;
     CIndividual* bestIndividual;
     int iterations;
     vector<CIndividual*> generation;
@@ -26,7 +27,7 @@ private:
 public:
     CGeneticAlgorithm();
     CGeneticAlgorithm(double mutProb, double crossProb, int popSize,
-                      int iterations, CKnapsackProblem *problem);
+                      int iterations, CapacityProblem *problem);
     ~CGeneticAlgorithm();
 
     string getResult();

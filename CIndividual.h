@@ -4,21 +4,23 @@
 #include <cstdlib>
 #include <string>
 
+#include "CapacityProblem.h"
 #include "CKnapsackProblem.h"
+
 
 using namespace std;
 
 class CIndividual {
 private:
     vector<int> genotype;
-    CKnapsackProblem* problem;
+    CapacityProblem* problem;
     double fitness;
 
     void setFitness();
 public:
     CIndividual();
-    CIndividual(CKnapsackProblem *problem);
-    CIndividual(const vector<int>& genotype, CKnapsackProblem *problem);
+    CIndividual(CapacityProblem *problem);
+    CIndividual(const vector<int>& genotype, CapacityProblem *problem);
     CIndividual(const CIndividual& other);
 
     double getFitness() const;

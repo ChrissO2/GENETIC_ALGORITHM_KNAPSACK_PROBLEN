@@ -54,6 +54,21 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
+			"path" : "/private/var/folders/h9/6644hzjd6b71zlcqyj7k76fw0000gn/T/AppTranslocation/B5F7F91A-F8A1-43E9-BB29-9D45FFF3A683/d/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeFindCodeBlocks.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/private/var/folders/h9/6644hzjd6b71zlcqyj7k76fw0000gn/T/AppTranslocation/B5F7F91A-F8A1-43E9-BB29-9D45FFF3A683/d/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/private/var/folders/h9/6644hzjd6b71zlcqyj7k76fw0000gn/T/AppTranslocation/B5F7F91A-F8A1-43E9-BB29-9D45FFF3A683/d/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/ProcessorCount.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
 			"path" : "/private/var/folders/h9/6644hzjd6b71zlcqyj7k76fw0000gn/T/AppTranslocation/B5F7F91A-F8A1-43E9-BB29-9D45FFF3A683/d/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake"
 		},
 		{
@@ -150,8 +165,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/Users/krzysztofotreba/CLionProjects/projekt_v2/cmake-build-debug",
-		"source" : "/Users/krzysztofotreba/CLionProjects/projekt_v2"
+		"build" : "/Users/krzysztofotreba/CLionProjects/tep_interfaces/GENETIC_ALGORITHM_KNAPSACK_PROBLEN/cmake-build-debug",
+		"source" : "/Users/krzysztofotreba/CLionProjects/tep_interfaces/GENETIC_ALGORITHM_KNAPSACK_PROBLEN"
 	},
 	"version" : 
 	{
