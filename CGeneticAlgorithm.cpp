@@ -83,15 +83,12 @@ void CGeneticAlgorithm::mutateGeneration() {
 
 void CGeneticAlgorithm::crossGeneration() {
     while (newGeneration.size() < popSize) {
-        // sprawdz czy to nowe obiekty czy te same adresy co rodzice
         CIndividual* parent1 = chooseParent();
         CIndividual* parent2 = chooseParent();
         vector<CIndividual*> children = parent1->cross(*parent2);
         newGeneration.push_back(children[0]);
         if (newGeneration.size() < popSize)
             newGeneration.push_back(children[1]);
-        else
-            delete children[1];
     }
 }
 
