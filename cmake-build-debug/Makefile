@@ -201,30 +201,6 @@ CKnapsackProblem.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projekt_v2.dir/build.make CMakeFiles/projekt_v2.dir/CKnapsackProblem.cpp.s
 .PHONY : CKnapsackProblem.cpp.s
 
-CapacityProblem.o: CapacityProblem.cpp.o
-.PHONY : CapacityProblem.o
-
-# target to build an object file
-CapacityProblem.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projekt_v2.dir/build.make CMakeFiles/projekt_v2.dir/CapacityProblem.cpp.o
-.PHONY : CapacityProblem.cpp.o
-
-CapacityProblem.i: CapacityProblem.cpp.i
-.PHONY : CapacityProblem.i
-
-# target to preprocess a source file
-CapacityProblem.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projekt_v2.dir/build.make CMakeFiles/projekt_v2.dir/CapacityProblem.cpp.i
-.PHONY : CapacityProblem.cpp.i
-
-CapacityProblem.s: CapacityProblem.cpp.s
-.PHONY : CapacityProblem.s
-
-# target to generate assembly for a file
-CapacityProblem.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projekt_v2.dir/build.make CMakeFiles/projekt_v2.dir/CapacityProblem.cpp.s
-.PHONY : CapacityProblem.cpp.s
-
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -267,9 +243,6 @@ help:
 	@echo "... CKnapsackProblem.o"
 	@echo "... CKnapsackProblem.i"
 	@echo "... CKnapsackProblem.s"
-	@echo "... CapacityProblem.o"
-	@echo "... CapacityProblem.i"
-	@echo "... CapacityProblem.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

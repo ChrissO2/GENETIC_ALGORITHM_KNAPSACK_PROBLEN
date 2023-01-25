@@ -28,7 +28,4 @@ public:
     void mutate(double mut_prob);
     pair<CIndividual*, CIndividual*> cross(CIndividual& other);
     string genotypeToString();
-
-
-
 };

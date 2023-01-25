@@ -5,8 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/projekt_v2.dir/CIndividual.cpp.o.d"
   "CMakeFiles/projekt_v2.dir/CKnapsackProblem.cpp.o"
   "CMakeFiles/projekt_v2.dir/CKnapsackProblem.cpp.o.d"
-  "CMakeFiles/projekt_v2.dir/CapacityProblem.cpp.o"
-  "CMakeFiles/projekt_v2.dir/CapacityProblem.cpp.o.d"
   "CMakeFiles/projekt_v2.dir/main.cpp.o"
   "CMakeFiles/projekt_v2.dir/main.cpp.o.d"
   "projekt_v2"

@@ -64,6 +64,7 @@ string CGeneticAlgorithm::getResult() {
     return result;
 }
 
+
 CIndividual *CGeneticAlgorithm::chooseParent() {
     int parent1Index = rand() % popSize;
     int parent2Index = rand() % popSize;
@@ -75,11 +76,13 @@ CIndividual *CGeneticAlgorithm::chooseParent() {
     return oldGeneration[parent2Index];
 }
 
+
 void CGeneticAlgorithm::mutateGeneration() {
     for (int i = 0; i < newGeneration.size(); i++) {
         newGeneration[i]->mutate(mutProb);
     }
 }
+
 
 void CGeneticAlgorithm::crossGeneration() {
     while (newGeneration.size() < popSize) {
@@ -91,6 +94,7 @@ void CGeneticAlgorithm::crossGeneration() {
             newGeneration.push_back(children.second);
     }
 }
+
 
 void CGeneticAlgorithm::findBestIndividual() {
     if (bestIndividual == NULL)
@@ -117,11 +121,13 @@ void CGeneticAlgorithm::run() {
     }
 }
 
+
 void CGeneticAlgorithm::createFirstGeneration() {
     for (int i = 0; i < popSize; i++) {
         oldGeneration.push_back(new CIndividual(problem));
     }
 }
+
 
 void CGeneticAlgorithm::moveGeneration() {
     for (int i = 0; i < oldGeneration.size(); i++) {

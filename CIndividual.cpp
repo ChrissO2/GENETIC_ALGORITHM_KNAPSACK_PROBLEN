@@ -1,9 +1,11 @@
 #include "CIndividual.h"
 
+
 CIndividual::CIndividual() {
     problem = NULL;
     fitness = 0;
 }
+
 
 CIndividual::CIndividual(CapacityProblem *problem) {
     this->problem = problem;
@@ -16,11 +18,13 @@ CIndividual::CIndividual(CapacityProblem *problem) {
     setFitness();
 }
 
+
 CIndividual::CIndividual(const vector<int>& genotype, CapacityProblem *problem) {
     this->genotype = genotype;
     this->problem = problem;
     setFitness();
 }
+
 
 CIndividual::CIndividual(const CIndividual &other) {
     problem = other.problem;
@@ -33,9 +37,11 @@ void CIndividual::setFitness() {
     fitness = problem->calculateFitness(genotype);
 }
 
+
 double CIndividual::getFitness() const {
     return fitness;
 }
+
 
 void CIndividual::mutate(double mut_prob) {
     for (int i = 0; i < genotype.size(); i++) {
@@ -48,6 +54,7 @@ void CIndividual::mutate(double mut_prob) {
     }
     setFitness();
 }
+
 
 pair<CIndividual*, CIndividual*> CIndividual::cross(CIndividual &other) {
     pair<CIndividual*, CIndividual*> children;
@@ -67,6 +74,7 @@ pair<CIndividual*, CIndividual*> CIndividual::cross(CIndividual &other) {
 
     return children;
 }
+
 
 string CIndividual::genotypeToString() {
     string result = "";

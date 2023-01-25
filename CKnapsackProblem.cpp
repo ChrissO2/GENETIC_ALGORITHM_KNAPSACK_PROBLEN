@@ -110,6 +110,7 @@ bool CKnapsackProblem::loadDataFile(const string &filePath) {
     return false;
 }
 
+
 bool CKnapsackProblem::isReady() {
     return isDataValid(itemsAmount, knapsackSize, sizes, values);
 }

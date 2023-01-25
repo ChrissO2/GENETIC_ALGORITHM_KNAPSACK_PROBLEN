@@ -27,8 +27,6 @@ private:
     CIndividual* chooseParent();
     void createFirstGeneration();
 
-
-
 public:
     CGeneticAlgorithm();
     CGeneticAlgorithm(double mutProb, double crossProb, int popSize,
