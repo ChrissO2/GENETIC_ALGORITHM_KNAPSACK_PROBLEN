@@ -2,10 +2,10 @@
 
 
 CGeneticAlgorithm::CGeneticAlgorithm() {
-    popSize = 0;
-    mutProb = 0;
-    crossProb = 0;
-    iterations = 0;
+    popSize = DEF_POP_SIZE;
+    mutProb = DEF_MUT_PROB;
+    crossProb = DEF_CROSS_PROB;
+    iterations = DEF_ITERATIONS;
     problem = NULL;
     bestIndividual = NULL;
 }
@@ -20,10 +20,10 @@ CGeneticAlgorithm::CGeneticAlgorithm(double mutProb, double crossProb, int popSi
         this->iterations = iterations;
     }
     else {
-        this->mutProb = 0;
-        this->crossProb = 0;
-        this->popSize = 0;
-        this->iterations = 0;
+        this->mutProb = DEF_MUT_PROB;
+        this->crossProb = DEF_CROSS_PROB;
+        this->popSize = DEF_POP_SIZE;
+        this->iterations = DEF_ITERATIONS;
         cerr << "CGeneticAlgorithm: Invalid data\n";
     }
     this->problem = problem;

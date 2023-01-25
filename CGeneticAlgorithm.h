@@ -5,6 +5,7 @@
 
 #include "CIndividual.h"
 #include "CapacityProblem.h"
+#include "GeneticAlgorithmDefValues.h"
 
 
 class CGeneticAlgorithm {

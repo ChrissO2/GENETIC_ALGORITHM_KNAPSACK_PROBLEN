@@ -103,7 +103,8 @@
 				2,
 				4,
 				6,
-				8
+				8,
+				9
 			]
 		}
 	],
@@ -157,6 +158,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "CapacityProblem.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "GeneticAlgorithmDefValues.h",
 			"sourceGroupIndex" : 1
 		}
 	],

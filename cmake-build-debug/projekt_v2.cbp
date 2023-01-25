@@ -102,6 +102,9 @@
 		<Unit filename="/Users/krzysztofotreba/CLionProjects/tep_interfaces/GENETIC_ALGORITHM_KNAPSACK_PROBLEN/CapacityProblem.h">
 			<Option target="projekt_v2"/>
 		</Unit>
+		<Unit filename="/Users/krzysztofotreba/CLionProjects/tep_interfaces/GENETIC_ALGORITHM_KNAPSACK_PROBLEN/GeneticAlgorithmDefValues.h">
+			<Option target="projekt_v2"/>
+		</Unit>
 		<Unit filename="/Users/krzysztofotreba/CLionProjects/tep_interfaces/GENETIC_ALGORITHM_KNAPSACK_PROBLEN/main.cpp">
 			<Option target="projekt_v2"/>
 		</Unit>
