@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 #include "CGeneticAlgorithm.h"
 #include "CapacityProblem.h"
