@@ -32,8 +32,10 @@ CKnapsackProblem::CKnapsackProblem(int itemsAmount, const vector<double> &sizes,
         this->values = values;
         this->sizes = sizes;
     }
-    else
-        cerr << "CKnapsackProblem: Invalid input data\n";
+    else {
+//        cerr << "CKnapsackProblem: Invalid input data\n";
+    }
+
 }
 
 
@@ -99,11 +101,11 @@ bool CKnapsackProblem::loadDataFile(const string &filePath) {
             this->sizes = newSizes;
             return true;
         }
-        else
-            cerr << "CKnapsackProblem::loadDataFile: Invalid input data\n";
+//        else
+//            cerr << "CKnapsackProblem::loadDataFile: Invalid input data\n";
 
     } catch (exception &err) {
-        cerr << "CKnapsackProblem::loadDataFile: No file found\n";
+//        cerr << "CKnapsackProblem::loadDataFile: No file found\n";
     }
     return false;
 }
